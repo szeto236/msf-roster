@@ -17,6 +17,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   position: relative;
   padding: 10px;
+  margin: 0.5em 0;
 `;
 
 const ImageWrapper = styled.div`
@@ -53,7 +54,7 @@ const InfoOverlay = styled.div`
   align-items: center;
   flex-direction: column;
   position: absolute;
-  bottom: 0;
+  bottom: -10px;
   left: 0;
   right: 0;
   width: 100%;
@@ -94,21 +95,24 @@ type PropsType = {
   power: string;
 };
 
-const getStars = (rStar: string, star: string) => {
+export const getStars = (rStar: string, star: string) => {
   const starIcon = (color: string) => (
     <StarListItem>
       <FontAwesomeIcon icon="star" color={color} size="xs" />
     </StarListItem>
   );
+  const countYellowStars = +star - +rStar;
   const redStar = R.repeat(starIcon("#d41f1f"), +rStar);
-  const yellowStar = R.repeat(starIcon("#ffff8e"), +star - +rStar);
-  const restStar = R.repeat(starIcon("#999"), 7 - +star);
+  const yellowStar =
+    countYellowStars > 0 && R.repeat(starIcon("#ffff8e"), countYellowStars);
+  const restStar =
+    (7 - +star >= 0 && R.repeat(starIcon("#999"), 7 - +star)) || null;
 
   return (
     <React.Fragment>
       {redStar}
       {yellowStar}
-      {restStar}
+      {7 - +star >= 0 && restStar}
     </React.Fragment>
   );
 };
@@ -131,7 +135,7 @@ const Character = ({
         <Level>LVL {level}</Level>
         <Power>{R.replace(",", "", power)}</Power>
         <CharName>{charName}</CharName>
-        <StarList>{rStar && getStars(rStar, star)}</StarList>
+        <StarList>{getStars(rStar, star)}</StarList>
       </InfoOverlay>
     </Wrapper>
   );
