@@ -1,7 +1,8 @@
 import * as React from "react";
 import * as R from "ramda";
-import styled, { css } from "styled-components";
+import styled, { css } from "styled-components/macro";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import TierGrow from "./TierGrow";
 
 const fontStyle = css`
   text-transform: uppercase;
@@ -84,6 +85,11 @@ const StarList = styled.ul`
   display: flex;
 `;
 
+const StyledTierGrow = styled(TierGrow)`
+  position: absolute;
+  top: 4px;
+`;
+
 const StarListItem = styled.li``;
 
 type PropsType = {
@@ -93,29 +99,34 @@ type PropsType = {
   rStar: string;
   level: string;
   power: string;
+  tier: string;
 };
 
 export const getStars = (rStar: string, star: string) => {
-  const starIcon = (color: string) => (
-    <StarListItem>
-      <FontAwesomeIcon icon="star" color={color} size="xs" />
-    </StarListItem>
-  );
-  const countYellowStars = +star - +rStar;
-  const redStar = R.repeat(starIcon("#d41f1f"), +rStar);
-  const yellowStar =
-    countYellowStars > 0 && R.repeat(starIcon("#ffff8e"), countYellowStars);
-  const restStar =
-    (7 - +star >= 0 && R.repeat(starIcon("#999"), 7 - +star)) || null;
+  let countYellowStars = +star - +rStar > 0 ? +star - +rStar : 0;
+  let redStar = +rStar;
+  let restStar = 7 - +star >= 0 ? 7 - +star : 0;
+  let emptyRStar;
 
-  return (
-    <React.Fragment>
-      {redStar}
-      {yellowStar}
-      {7 - +star >= 0 && restStar}
-    </React.Fragment>
-  );
+  if (+rStar > +star) {
+    emptyRStar = +rStar - +star;
+    redStar = +star;
+    restStar = 7 - (emptyRStar + redStar);
+  }
+
+  return {
+    redStar: redStar,
+    greyStar: restStar,
+    yellowStar: countYellowStars,
+    emptyRStar: +rStar > +star ? +rStar - +star : 0
+  };
 };
+
+const StarIcon = ({ color, icon }: { color: string; icon: any }) => (
+  <StarListItem>
+    <FontAwesomeIcon icon={icon} color={color} size="xs" />
+  </StarListItem>
+);
 
 const Character = ({
   imageUrl,
@@ -123,19 +134,44 @@ const Character = ({
   level,
   power,
   star,
-  rStar
+  rStar,
+  tier
 }: PropsType) => {
+  const stars = getStars(rStar, star);
+
   return (
     <Wrapper>
       <ImageWrapper>
         <img src={imageUrl} alt={charName} />
       </ImageWrapper>
       <CircleBg />
+      <StyledTierGrow tier={+tier} />
       <InfoOverlay>
         <Level>LVL {level}</Level>
         <Power>{R.replace(",", "", power)}</Power>
         <CharName>{charName}</CharName>
-        <StarList>{getStars(rStar, star)}</StarList>
+        <StarList>
+          {stars.redStar > 0 &&
+            R.repeat(
+              <StarIcon icon={["fas", "star"]} color="#d41f1f" />,
+              stars.redStar
+            )}
+          {stars.emptyRStar > 0 &&
+            R.repeat(
+              <StarIcon icon={["far", "star"]} color="#d41f1f" />,
+              stars.emptyRStar
+            )}
+          {stars.yellowStar > 0 &&
+            R.repeat(
+              <StarIcon icon={["fas", "star"]} color="#ffff8e" />,
+              stars.yellowStar
+            )}
+          {stars.greyStar > 0 &&
+            R.repeat(
+              <StarIcon icon={["fas", "star"]} color="#999" />,
+              stars.greyStar
+            )}
+        </StarList>
       </InfoOverlay>
     </Wrapper>
   );
@@ -147,7 +183,8 @@ Character.defaultProps = {
   charName: "",
   level: "0",
   star: "0",
-  rStar: "0"
+  rStar: "0",
+  tier: "0"
 };
 
 export default Character;
