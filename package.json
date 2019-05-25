@@ -2,9 +2,10 @@
   "name": "msf-roster",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/szeto236/msf-roster",
+  "homepage": "https://szeto236.github.io/msf-roster",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.18",
+    "@fortawesome/free-regular-svg-icons": "^5.8.2",
     "@fortawesome/free-solid-svg-icons": "^5.8.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "@types/jest": "24.0.12",
@@ -45,6 +46,7 @@
   "devDependencies": {
     "@types/ramda": "^0.26.8",
     "@types/styled-components": "^4.1.15",
+    "babel-plugin-styled-components": "^1.10.0",
     "gh-pages": "^2.0.1"
   }
 }
