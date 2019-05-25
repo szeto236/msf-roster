@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/szeto236/msf-roster/static/js/main.760ebc5f.chunk.js",
-    "main.js.map": "/szeto236/msf-roster/static/js/main.760ebc5f.chunk.js.map",
-    "runtime~main.js": "/szeto236/msf-roster/static/js/runtime~main.037c3b3a.js",
-    "runtime~main.js.map": "/szeto236/msf-roster/static/js/runtime~main.037c3b3a.js.map",
-    "static/js/2.004d7442.chunk.js": "/szeto236/msf-roster/static/js/2.004d7442.chunk.js",
-    "static/js/2.004d7442.chunk.js.map": "/szeto236/msf-roster/static/js/2.004d7442.chunk.js.map",
-    "index.html": "/szeto236/msf-roster/index.html",
-    "precache-manifest.b54dd87df99add33f7676f4bea51d514.js": "/szeto236/msf-roster/precache-manifest.b54dd87df99add33f7676f4bea51d514.js",
-    "service-worker.js": "/szeto236/msf-roster/service-worker.js"
+    "main.js": "/msf-roster/static/js/main.a1a3e268.chunk.js",
+    "main.js.map": "/msf-roster/static/js/main.a1a3e268.chunk.js.map",
+    "runtime~main.js": "/msf-roster/static/js/runtime~main.15fb3d91.js",
+    "runtime~main.js.map": "/msf-roster/static/js/runtime~main.15fb3d91.js.map",
+    "static/js/2.1b4a560d.chunk.js": "/msf-roster/static/js/2.1b4a560d.chunk.js",
+    "static/js/2.1b4a560d.chunk.js.map": "/msf-roster/static/js/2.1b4a560d.chunk.js.map",
+    "index.html": "/msf-roster/index.html",
+    "precache-manifest.27bb215948501caf80bea4c272693a29.js": "/msf-roster/precache-manifest.27bb215948501caf80bea4c272693a29.js",
+    "service-worker.js": "/msf-roster/service-worker.js"
   }
 }
