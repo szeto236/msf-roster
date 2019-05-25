@@ -9,7 +9,7 @@ const TierGrow = ({ tier, className }: PropsType) => {
   let growColor = "transparent";
   let secondaryGrowColor = "transparent";
 
-  if (tier > 0 && tier < 5) {
+  if (tier > 1 && tier < 5) {
     growColor = "#00ff00";
     secondaryGrowColor = "#004d00";
   } else if (tier >= 5 && tier < 9) {
