@@ -39,7 +39,7 @@ const CircleBg = styled.div`
   position: absolute;
   top: 44px;
   width: 73px;
-  z-index: 2;
+  z-index: -1;
   transition: all 0.3s ease;
 `;
 
@@ -88,6 +88,7 @@ const StarList = styled.ul`
 const StyledTierGrow = styled(TierGrow)`
   position: absolute;
   top: 4px;
+  z-index: -1;
 `;
 
 const StarListItem = styled.li``;
