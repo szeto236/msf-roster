@@ -6,8 +6,7 @@ import TierGrow from "./TierGrow";
 
 const fontStyle = css`
   text-transform: uppercase;
-  font-family: "Mukta Mahee", sans-serif;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 0.9;
 `;
 
@@ -89,6 +88,7 @@ const StyledTierGrow = styled(TierGrow)`
   position: absolute;
   top: 4px;
   z-index: -1;
+  overflow: visible;
 `;
 
 const StarListItem = styled.li``;
