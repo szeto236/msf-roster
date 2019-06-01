@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import useSheetApi from "../hooks/useSheetApi";
 import { filterArrayValueByArray } from "../utils/filterArrayValue";
 import Roster from "../components/Roster";
 import * as R from "ramda";
+import { StateContext } from "../App";
 
 const params = {
   spreadsheetId: "1XoNQlKdUsCMQ0Ew6g5q_nqQuJMccv8XrAbkDypJQdqI",
@@ -11,12 +12,12 @@ const params = {
   majorDimension: "ROWS"
 };
 
-type DataType = {
+export type DataType = {
   values: string[][];
 };
 
 const RosterContainer = () => {
-  const data: DataType = useSheetApi({ ...params });
+  const data = useContext(StateContext);
   const [computeData, setComputeData] = useState(data.values);
 
   useEffect(() => {
