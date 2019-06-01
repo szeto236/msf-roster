@@ -11,9 +11,15 @@ const GridWrapper = styled.div`
   justify-content: center;
 `;
 
-const Roster = ({ computeData }: { computeData: string[][] }) => {
+const Roster = ({
+  computeData,
+  className
+}: {
+  computeData: string[][];
+  className?: string;
+}) => {
   return (
-    <GridWrapper>
+    <GridWrapper className={className}>
       {R.isEmpty(computeData) && <h1>Loading...</h1>}
       {computeData &&
         computeData.map(char => {
