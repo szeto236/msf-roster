@@ -143,7 +143,7 @@ const Character = ({
   return (
     <Wrapper>
       <ImageWrapper>
-        <img src={imageUrl} alt={charName} />
+        <img src={`${imageUrl}?v=1`} alt={charName} />
       </ImageWrapper>
       <CircleBg />
       <StyledTierGrow tier={+tier} />
