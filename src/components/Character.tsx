@@ -63,7 +63,7 @@ const InfoOverlay = styled.div`
 
 const Level = styled.div`
   ${fontStyle};
-  color: #eaeaea;
+  color: var(--light-grey);
   font-size: 14px;
   transform: skewX(-15deg);
   z-index: 4;
@@ -71,7 +71,7 @@ const Level = styled.div`
 
 const Power = styled.div`
   ${fontStyle};
-  color: #ffff8e;
+  color: var(--yellow);
   font-size: 26px;
   transform: skewX(-15deg);
   z-index: 4;
@@ -154,17 +154,17 @@ const Character = ({
         <StarList>
           {stars.redStar > 0 &&
             R.repeat(
-              <StarIcon icon={["fas", "star"]} color="#d41f1f" />,
+              <StarIcon icon={["fas", "star"]} color="var(--red)" />,
               stars.redStar
             )}
           {stars.emptyRStar > 0 &&
             R.repeat(
-              <StarIcon icon={["far", "star"]} color="#d41f1f" />,
+              <StarIcon icon={["far", "star"]} color="var(--red)" />,
               stars.emptyRStar
             )}
           {stars.yellowStar > 0 &&
             R.repeat(
-              <StarIcon icon={["fas", "star"]} color="#ffff8e" />,
+              <StarIcon icon={["fas", "star"]} color="var(--yellow)" />,
               stars.yellowStar
             )}
           {stars.greyStar > 0 &&
