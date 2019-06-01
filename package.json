@@ -16,6 +16,7 @@
     "@types/react-dom": "16.8.4",
     "@typescript-eslint/eslint-plugin": "1.6.0",
     "@typescript-eslint/parser": "1.6.0",
+    "antd": "^3.19.1",
     "axios": "^0.19.0",
     "babel-eslint": "10.0.1",
     "babel-jest": "24.7.1",
@@ -94,6 +95,8 @@
   "devDependencies": {
     "@types/ramda": "^0.26.8",
     "@types/styled-components": "^4.1.15",
+    "babel-plugin-import": "^1.11.2",
+    "babel-plugin-inline-import": "^3.0.0",
     "babel-plugin-styled-components": "^1.10.0",
     "gh-pages": "^2.0.1"
   },
@@ -140,11 +143,6 @@
     "watchPlugins": [
       "jest-watch-typeahead/filename",
       "jest-watch-typeahead/testname"
-    ]
-  },
-  "babel": {
-    "presets": [
-      "react-app"
     ]
   }
 }

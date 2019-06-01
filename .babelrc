@@ -1,0 +1,18 @@
+{
+  "presets": ["react-app"],
+  "plugins": [
+    [
+      "inline-import",
+      {
+        "extensions": [".css"]
+      }
+    ],
+    [
+      "import",
+      {
+        "libraryName": "antd",
+        "style": false
+      }
+    ]
+  ]
+}
